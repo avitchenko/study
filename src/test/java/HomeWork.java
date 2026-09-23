@@ -28,7 +28,7 @@ public class HomeWork {
     // Проверка внутри метода должна происходить с помощью тернарного оператора.
 
     public static boolean isPositive(int n) {
-        return n >= 0 ? true : false;
+        return n >= 0;
     }
 
     // Задача 4: разработать метод с сигнатурой public static String getGrade(int score).
