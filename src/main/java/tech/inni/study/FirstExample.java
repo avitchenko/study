@@ -2,7 +2,7 @@ package tech.inni.study;
 
 public class FirstExample {
 
-    public FirstExample(int i, int i1) {
+    public FirstExample() {
     }
 
     public int plus(int a, int b) {
