@@ -17,6 +17,8 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("com.fasterxml.jackson.core:jackson-core:2.22.2")
     testImplementation("org.assertj:assertj-core:3.27.7")
+    implementation("io.rest-assured:rest-assured:5.5.6")
+    implementation("io.rest-assured:json-path:5.5.6")
 }
 
 // === Обычная задача test: все тесты + печать "Test run is over" после ===
@@ -54,6 +56,17 @@ tasks.register<Test>("assertionsTest") {
     }
     filter {
         includeTestsMatching("tech.inni.study.Assertions*")
+    }
+    testClassesDirs = sourceSets.test.get().output.classesDirs
+    classpath = sourceSets.test.get().runtimeClasspath
+}
+
+// === Задача для ДЗ-4: только API-тесты с тегом Api ===
+tasks.register<Test>("apiTest") {
+    group = "verification"
+    description = "Запускает только API-тесты с тегом Api"
+    useJUnitPlatform {
+        includeTags("Api")
     }
     testClassesDirs = sourceSets.test.get().output.classesDirs
     classpath = sourceSets.test.get().runtimeClasspath
